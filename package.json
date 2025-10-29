@@ -1,0 +1,16 @@
+{
+  "name": "link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "a.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node src/minify.js",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
