@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Redirecting...</title>
+    <script>
+      const code = location.pathname.substring(1).trim();
+
+      if (code.match(/^[A-Za-z0-9_-]{8,64}$/)) {
+        const isMobile =
+          navigator.userAgentData?.mobile ||
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          ) ||
+          navigator.maxTouchPoints > 1 ||
+          Math.min(screen.width || Infinity, screen.height || Infinity) <= 800;
+
+        const web = `https://chat.whatsapp.com/${encodeURIComponent(code)}`;
+
+        if (isMobile) {
+          location.href = `whatsapp://chat?code=${encodeURIComponent(code)}`;
+          setTimeout(() => location.replace(web), 500);
+        } else {
+          location.replace(web);
+        }
+      }
+    </script>
+
+    <!-- No-JavaScript fallback -->
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=https://chat.whatsapp.com/" />
+    </noscript>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GDY6GC0140"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GDY6GC0140");
+    </script>
+  </head>
+  <body></body>
+</html>

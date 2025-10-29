@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "fblink",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
